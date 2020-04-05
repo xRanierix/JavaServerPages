@@ -45,7 +45,7 @@ public class ManterFilmesController extends HttpServlet {
 			double popularidade = Double.parseDouble(request.getParameter("popularidade"));
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
-			// dizendo o formato da data que será digitada
+			// dizendo o formato da data que serï¿½ digitada
 
 			Date dataLanc = null;
 			try {
@@ -58,11 +58,11 @@ public class ManterFilmesController extends HttpServlet {
 			String poster = request.getParameter("poster");
 			String diretor = request.getParameter("diretor");
 			int idGenero = Integer.parseInt(request.getParameter("idgenero"));
-			GeneroService generoservice = new GeneroService(); //instanciar para chamar o método do Genero Service
+			GeneroService generoservice = new GeneroService(); //instanciar para chamar o mï¿½todo do Genero Service
 			Genero genero = generoservice.buscarGenero(idGenero); 
-			//Recebe um genero do banco e coloca na variável genero 
-			//Para executar um método de outra classe, 
-			//instacio ela numa viariável e chamo ela pelo nome da variável com ponto na frente
+			//Recebe um genero do banco e coloca na variï¿½vel genero 
+			//Para executar um mï¿½todo de outra classe, 
+			//instacio ela numa viariï¿½vel e chamo ela pelo nome da variï¿½vel com ponto na frente
 			
 			Filme filmeMontado = new Filme();
 			filmeMontado.setTitulo(titulo);
@@ -76,8 +76,8 @@ public class ManterFilmesController extends HttpServlet {
 			FilmeService filmesvc = new FilmeService(); 
 			int idFilmeUsuario = filmesvc.inserirFilme(filmeMontado);
 			
-			request.setAttribute("filme", filmeMontado); //primeira variável é o nome dela no HTML
-														// a segunda é do java local (controller)
+			request.setAttribute("filme", filmeMontado); //primeira variï¿½vel ï¿½ o nome dela no HTML
+														// a segunda ï¿½ do java local (controller)
 
 			RequestDispatcher viewInserir = request.getRequestDispatcher("Filme.jsp");
 			viewInserir.forward(request, response);

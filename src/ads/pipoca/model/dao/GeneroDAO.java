@@ -12,7 +12,7 @@ import ads.pipoca.model.entity.Genero;
 public class GeneroDAO {
 	public ArrayList<Genero> listarGeneros() throws IOException {
 		ArrayList<Genero> generos = new ArrayList<>();
-		String sql = "select id, nome from genero order by nome";
+		String sql = "select id, nome from GENERO order by nome";
 
 		try (Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement pst = conn.prepareStatement(sql);
@@ -33,7 +33,7 @@ public class GeneroDAO {
 	
 	public Genero buscarGenero(int id) throws IOException {
 		Genero genero = null;
-		String sql = "select id, nome from genero where id=?";
+		String sql = "select id, nome from GENERO where id=?";
 
 		try (Connection conn = ConnectionFactory.getConnection(); 
 				PreparedStatement pst = conn.prepareStatement(sql);) {
