@@ -47,9 +47,9 @@ public class ManterFilmesController extends HttpServlet {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
 			// dizendo o formato da data que será digitada
 
-			
+			Date dataLanc = null;
 			try {
-				Date dataLanc = formatter.parse(request.getParameter("datalanc"));
+				dataLanc = formatter.parse(request.getParameter("datalanc"));
 			} catch (ParseException e) {
 				//Mensagem de erro
 				e.printStackTrace();
@@ -64,7 +64,15 @@ public class ManterFilmesController extends HttpServlet {
 			//Para executar um método de outra classe, 
 			//instacio ela numa viariável e chamo ela pelo nome da variável com ponto na frente
 			
-			Filme filme = new Filme();
+			Filme filmeMontado = new Filme();
+			filmeMontado.setTitulo(titulo);
+			filmeMontado.setDescricao(descricao);
+			filmeMontado.setPopularidade(popularidade);
+			filmeMontado.setDataLancamento(dataLanc);
+			filmeMontado.setPosterPath(poster);
+			filmeMontado.setDiretor(diretor);
+			filmeMontado.setGenero(genero);
+			
 			
 			
 			break;
