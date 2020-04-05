@@ -73,7 +73,14 @@ public class ManterFilmesController extends HttpServlet {
 			filmeMontado.setDiretor(diretor);
 			filmeMontado.setGenero(genero);
 			
+			FilmeService filmesvc = new FilmeService(); 
+			int idFilmeUsuario = filmesvc.inserirFilme(filmeMontado);
 			
+			request.setAttribute("filme", filmeMontado); //primeira variável é o nome dela no HTML
+														// a segunda é do java local (controller)
+
+			RequestDispatcher viewInserir = request.getRequestDispatcher("Filme.jsp");
+			viewInserir.forward(request, response);
 			
 			break;
 		case "atualizar":
