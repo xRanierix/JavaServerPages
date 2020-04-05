@@ -9,9 +9,9 @@ public class ConnectionFactory {
 		try {
 			//se descomentar uma linha não se esqueça de comentar a outra
 			//descomente a linha de baixo para MySQL 5.7
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 			//descomente a linha de baixo para MySQL 8
-			//Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -23,11 +23,11 @@ public class ConnectionFactory {
 		try {
 			//se descomentar uma linha não se esqueça de comentar a outra
 			//descomente a linha de baixo para MySQL 5.7
-			return DriverManager.getConnection("jdbc:mysql://localhost/pipocadb?"
-					+ "user=Alunos&password=alunos&useSSL=false");
+			//return DriverManager.getConnection("jdbc:mysql://localhost/pipocadb?"
+					//+ "user=Alunos&password=alunos&useSSL=false");
 			//descomente a linha de baixo para MySQL 8
-			//return DriverManager .getConnection("jdbc:mysql://localhost:3306/pipocadb?"
-			//		+ "useTimezone=true&serverTimezone=UTC&user=alunos&password=alunos";
+			return DriverManager .getConnection("jdbc:mysql://localhost:3306/pipocadb?"
+					+ "useTimezone=true&serverTimezone=UTC&user=Alunos&password=alunos");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);
