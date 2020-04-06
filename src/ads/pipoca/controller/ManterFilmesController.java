@@ -45,24 +45,24 @@ public class ManterFilmesController extends HttpServlet {
 			double popularidade = Double.parseDouble(request.getParameter("popularidade"));
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
-			// dizendo o formato da data que ser� digitada
+			// dizendo o formato da data que será digitada
 
 			Date dataLanc = null;
 			try {
 				dataLanc = formatter.parse(request.getParameter("datalanc"));
 			} catch (ParseException e) {
-				//Mensagem de erro
+				//Mensagem do erro para data de lançamento
 				e.printStackTrace();
 			}
 			
 			String poster = request.getParameter("poster");
 			String diretor = request.getParameter("diretor");
 			int idGenero = Integer.parseInt(request.getParameter("idgenero"));
-			GeneroService generoservice = new GeneroService(); //instanciar para chamar o m�todo do Genero Service
+			GeneroService generoservice = new GeneroService(); //instanciar para chamar o método do Genero Service
 			Genero genero = generoservice.buscarGenero(idGenero); 
-			//Recebe um genero do banco e coloca na vari�vel genero 
-			//Para executar um m�todo de outra classe, 
-			//instacio ela numa viari�vel e chamo ela pelo nome da vari�vel com ponto na frente
+			//Recebe um genero do banco e coloca na variável genero 
+			//Para executar um método de outra classe, 
+			//instacio ela numa viariável e chamo ela pelo nome da variável com ponto na frente
 			
 			Filme filmeMontado = new Filme();
 			filmeMontado.setTitulo(titulo);
@@ -76,8 +76,8 @@ public class ManterFilmesController extends HttpServlet {
 			FilmeService filmesvc = new FilmeService(); 
 			int idFilmeUsuario = filmesvc.inserirFilme(filmeMontado);
 			
-			request.setAttribute("filme", filmeMontado); //primeira vari�vel � o nome dela no HTML
-														// a segunda � do java local (controller)
+			request.setAttribute("filme", filmeMontado); //primeira variável á o nome dela no HTML
+			// a segunda é do java local (controller)
 
 			RequestDispatcher viewInserir = request.getRequestDispatcher("Filme.jsp");
 			viewInserir.forward(request, response);
