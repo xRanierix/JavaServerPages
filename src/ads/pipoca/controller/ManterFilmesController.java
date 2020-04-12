@@ -25,8 +25,9 @@ public class ManterFilmesController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String acao = request.getParameter("acao");
+		request.setCharacterEncoding("UTF-/");
 
-		switch (acao) {
+;		switch (acao) {
 		case "mostrar":
 			String id_filme = request.getParameter("id_filme");
 			int idFilme = Integer.parseInt(id_filme);
