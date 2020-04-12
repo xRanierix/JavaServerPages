@@ -12,7 +12,7 @@ import ads.pipoca.model.entity.Genero;
 public class FilmeDAO {
 	public int inserirFilme(Filme filme) throws IOException {
 		int id = -1;
-		String sql = "insert into Filme (titulo, descricao, diretor, posterpath, "
+		String sql = "insert into FILME (titulo, descricao, diretor, posterpath, "
 				+ "popularidade, data_lancamento, id_genero) values (?,?,?,?,?,?,?)";
 
 		try (Connection conn = ConnectionFactory.getConnection(); PreparedStatement pst = conn.prepareStatement(sql);) {
@@ -47,7 +47,7 @@ public class FilmeDAO {
 		Filme filme = null;
 		String sql = "select f.id, titulo, descricao, diretor, posterpath, "
 				+ "popularidade, data_lancamento, id_genero, nome "
-				+ "from filme f, genero g "
+				+ "from FILME f, GENERO g "
 				+ "where f.id_genero = g.id and f.id = ?";
 
 		try (Connection conn = ConnectionFactory.getConnection();
